@@ -24,6 +24,8 @@ namespace AlphaBIM
 
             return null;
         }
+
+        // Hàm từ soild lấy ra được các face 
         public static List<Face> GetFaces(this Solid solid)
         {
             List<Face> faces = new List<Face>();
@@ -57,7 +59,7 @@ namespace AlphaBIM
 
             double result = 0;
             faces = faces
-                .Where(x => x.GetNormal().IsAlmostEqualTo(XYZ.BasisZ.Negate())).ToList();
+                .Where(x => x.GetNormal().IsAlmostEqualTo(XYZ.BasisZ.Negate())).ToList();// Lấy ra các face có z hướng xuog
 
             foreach (Face face in faces)
             {
@@ -66,6 +68,8 @@ namespace AlphaBIM
 
             return result;
         }
+
+        // Tìm ra face top và bottom 
         public static double CalAreaNotTopNotBottom(this List<Face> faces)
         {
 
@@ -74,14 +78,23 @@ namespace AlphaBIM
                 .Where(x => !x.GetNormal().IsAlmostEqualTo(XYZ.BasisZ))// trên (theo trục Z) 
                 .Where(x => !x.GetNormal().IsAlmostEqualTo(XYZ.BasisZ.Negate()))// dưới (theo trục Z)
                 .ToList();
-            foreach (Face face in faces)
+            foreach (Face face in faces)// 4 mặt 
             {
                 result += face.Area;
             }
 
             return result;
         }
+        public static double CalAreaAll(this List<Face> faces)
+        {
 
+            double result = 0;
+            foreach (Face face in faces)// 4 mặt 
+            {
+                result += face.Area;
+            }
+            return result;
+        }
         public static XYZ GetNormal(this Face face)
         {
             BoundingBoxUV uv = face.GetBoundingBox();

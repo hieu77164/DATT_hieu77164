@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace AlphaBIM.Models
 {
-   public class BeamColumnSelectionFilter : ISelectionFilter
+   public class BeamColumnFloorSelectionFilter : ISelectionFilter
     {
         public bool AllowElement(Element elem)
         {
@@ -18,7 +18,8 @@ namespace AlphaBIM.Models
             }
 
             return elem.Category.Id.IntegerValue.Equals((int)BuiltInCategory.OST_StructuralFraming) ||
-                   elem.Category.Id.IntegerValue.Equals((int)BuiltInCategory.OST_StructuralColumns);
+                   elem.Category.Id.IntegerValue.Equals((int)BuiltInCategory.OST_StructuralColumns)||
+                   elem.Category.Id.IntegerValue.Equals((int)BuiltInCategory.OST_Floors);
         }
 
         public bool AllowReference(Reference reference, XYZ position)

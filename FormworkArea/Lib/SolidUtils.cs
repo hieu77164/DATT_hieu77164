@@ -54,7 +54,9 @@ namespace AlphaBIM
 
             return preTransformBox;
         }
-
+        
+        
+        //Hàm này sẽ lấy ra được các Solid 
         public static Solid GetSolid(this Element el)
         {
             GeometryElement geoElement = el.get_Geometry(new Options());

@@ -85,7 +85,7 @@
     <Compile Include="Lib\GeometryUtils.cs" />
     <Compile Include="Lib\ParameterUtils.cs" />
     <Compile Include="Lib\SolidUtils.cs" />
-    <Compile Include="Models\BeamColumnSelectionFilter.cs" />
+    <Compile Include="Models\BeamColumnFloorSelectionFilter.cs" />
     <Compile Include="Models\CreateShareParameterFormworkArea.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="FormworkAreaCmd.cs" />

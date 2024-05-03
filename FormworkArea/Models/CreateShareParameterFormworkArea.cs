@@ -22,15 +22,11 @@ namespace TINHKHOILUONGVANKHUON
             string group = "STR";
 
             List<Category> categories = new List<Category>();
-            categories.Add(Category.GetCategory(doc,BuiltInCategory.OST_StructuralFraming));
+            categories.Add(Category.GetCategory(doc, BuiltInCategory.OST_StructuralFraming));
             categories.Add(Category.GetCategory(doc, BuiltInCategory.OST_StructuralColumns));
+            categories.Add(Category.GetCategory(doc, BuiltInCategory.OST_Floors));
 
-            List<Category> categoriesBeam = new List<Category>();
-            categoriesBeam.Add(Category.GetCategory(doc, BuiltInCategory.OST_StructuralFraming));
-
-            List<Category> categoriesColum = new List<Category>();
-            categoriesColum.Add(Category.GetCategory(doc, BuiltInCategory.OST_StructuralColumns));
-
+           
             Transaction t = new Transaction(doc, " Tạo ShareParameter");
             t.Start();
 
@@ -71,7 +67,6 @@ namespace TINHKHOILUONGVANKHUON
                 DescriptionFwBeamBottom,
                 categories,
                 true);
-
             ParameterUtils.CreateSharedParamater(
                 doc,
                 app,
@@ -83,7 +78,17 @@ namespace TINHKHOILUONGVANKHUON
                 DescriptionFwBeamSubCol,
                 categories,
                 true);
-
+            ParameterUtils.CreateSharedParamater(
+               doc,
+               app,
+               path,
+               group,
+               NameFwBeamSubFloor,
+               ParameterType.Area,
+               BuiltInParameterGroup.PG_STRUCTURAL,
+               DescriptionFwBeamSubFloor,
+               categories,
+               true);
             ParameterUtils.CreateSharedParamater(
                 doc,
                 app,
@@ -109,19 +114,6 @@ namespace TINHKHOILUONGVANKHUON
                 DescriptionFwColumnTotal,
                 categories,
                 true);
-
-            ParameterUtils.CreateSharedParamater(
-                doc,
-                app,
-                path,
-                group,
-                NameFwColumnBottom,
-                ParameterType.Area,
-                BuiltInParameterGroup.PG_STRUCTURAL,
-                DescriptionFwColumnBottom,
-                categories,
-                true);
-
             ParameterUtils.CreateSharedParamater(
                 doc,
                 app,
@@ -132,8 +124,18 @@ namespace TINHKHOILUONGVANKHUON
                 BuiltInParameterGroup.PG_STRUCTURAL,
                 DescriptionFwColumnSubBeam,
                 categories,
-                true);
-
+                true); 
+            ParameterUtils.CreateSharedParamater(
+               doc,
+               app,
+               path,
+               group,
+               NameFwColumnSubFloor,
+               ParameterType.Area,
+               BuiltInParameterGroup.PG_STRUCTURAL,
+               DescriptionFwColumnSubFloor,
+               categories,
+               true);
             ParameterUtils.CreateSharedParamater(
                 doc,
                 app,
@@ -147,6 +149,77 @@ namespace TINHKHOILUONGVANKHUON
                 true);
             #endregion
 
+
+            #region Para của sàn
+
+            ParameterUtils.CreateSharedParamater(
+                doc,
+                app,
+                path,
+                group,
+                NameFwFloorTotal,
+                ParameterType.Area,
+                BuiltInParameterGroup.PG_STRUCTURAL,
+                DescriptionFwFloorTotal,
+                categories,
+                true);
+            ParameterUtils.CreateSharedParamater(
+               doc,
+               app,
+               path,
+               group,
+               NameFwFloorSides,
+               ParameterType.Area,
+               BuiltInParameterGroup.PG_STRUCTURAL,
+               DescriptionFwFloorSides,
+               categories,
+               true);
+            ParameterUtils.CreateSharedParamater(
+              doc,
+              app,
+              path,
+              group,
+              NameFwFloorBottom,
+              ParameterType.Area,
+              BuiltInParameterGroup.PG_STRUCTURAL,
+              DescriptionFwFloorBottom,
+              categories,
+              true);
+            ParameterUtils.CreateSharedParamater(
+              doc,
+              app,
+              path,
+              group,
+              NameFwFloorSubBeam,
+              ParameterType.Area,
+              BuiltInParameterGroup.PG_STRUCTURAL,
+              DescriptionFwFloorSubBeam,
+              categories,
+              true);
+            ParameterUtils.CreateSharedParamater(
+             doc,
+             app,
+             path,
+             group,
+             NameFwFloorSubCol,
+             ParameterType.Area,
+             BuiltInParameterGroup.PG_STRUCTURAL,
+             DescriptionFwFloorSubCol,
+             categories,
+             true);
+            ParameterUtils.CreateSharedParamater(
+            doc,
+            app,
+            path,
+            group,
+            NameFwFloorSubFloor,
+            ParameterType.Area,
+            BuiltInParameterGroup.PG_STRUCTURAL,
+            DescriptionFwFloorSubFloor,
+            categories,
+            true);
+            #endregion
+
             t.Commit();
         }
 
@@ -155,25 +228,45 @@ namespace TINHKHOILUONGVANKHUON
         internal static String NameAlpFormworkArea { get; set; } = "FW_FormworkArea";
         internal static String DescriptionAlFormworkArea { get; set; } = "Diện tích ván khuôn";
 
-
+        #region Dầm 
         internal static string NameFwBeamTotal { get; set; } = "FW.Beam.Total";
         internal static string DescriptionFwBeamTotal { get; set; } = "Tổng diện tích ván khuôn";
         internal static string NameFwBeamBottom { get; set; } = "FW.Beam.Bottom";
         internal static string DescriptionFwBeamBottom { get; set; } = "Diện tích ván khuôn đáy";
         internal static string NameFwBeamSubCol { get; set; } = "FW.Beam.SubCol";
         internal static string DescriptionFwBeamSubCol { get; set; } = "Diện tích tiếp xúc với cột";
+        internal static string NameFwBeamSubFloor { get; set; } = "FW.Beam.SubFloor";
+        internal static string DescriptionFwBeamSubFloor { get; set; } = "Diện tích tiếp xúc với sàn";
         internal static string NameFwBeamSubBeam { get; set; } = "FW.Beam.SubBeam";
         internal static string DescriptionFwBeamSubBeam { get; set; } = "Diện tích tiếp xúc với dầm";
+       
+        #endregion
 
+        #region Cột
         internal static string NameFwColumnTotal { get; set; } = "FW.Colum.Total";
         internal static string DescriptionFwColumnTotal { get; set; } = "Tổng diện tích ván khuôn";
-        internal static string NameFwColumnBottom { get; set; } = "FW.Colum.Bottom";
-        internal static string DescriptionFwColumnBottom { get; set; } = "Diện tích ván khuôn đáy";
         internal static string NameFwColumnSubBeam { get; set; } = "FW.Colum.SubBeam";
         internal static string DescriptionFwColumnSubBeam { get; set; } = "Diện tích tiếp xúc với dầm";
+        internal static string NameFwColumnSubFloor { get; set; } = "FW.Colum.SubFloor";
+        internal static string DescriptionFwColumnSubFloor { get; set; } = "Diện tích tiếp xúc với sàn";
         internal static string NameFwColumnSubColumn { get; set; } = "FW.Colum.SubColum";
         internal static string DescriptionFwColumnSubColumn { get; set; } = "Diện tích tiếp xúc với cột";
+       
+        #endregion
 
-
+        #region Sàn
+        internal static string NameFwFloorTotal { get; set; } = "FW.Floor.Total";
+        internal static string DescriptionFwFloorTotal { get; set; } = "Tổng diện tích ván khuôn";
+        internal static string NameFwFloorSides { get; set; } = "FW.Floor.Sides";
+        internal static string DescriptionFwFloorSides { get; set; } = "Tổng diện tích xung quanh";
+        internal static string NameFwFloorBottom { get; set; } = "FW.Floor.Bottom";
+        internal static string DescriptionFwFloorBottom { get; set; } = "Diện tích ván khuôn đáy";
+        internal static string NameFwFloorSubBeam { get; set; } = "FW.Floor.SubBeam";
+        internal static string DescriptionFwFloorSubBeam { get; set; } = "Diện tích tiếp xúc với dầm";
+        internal static string NameFwFloorSubCol { get; set; } = "FW.Floor.SubColum";
+        internal static string DescriptionFwFloorSubCol { get; set; } = "Diện tích tiếp xúc với cột";
+        internal static string NameFwFloorSubFloor { get; set; } = "FW.Floor.SubFloor";
+        internal static string DescriptionFwFloorSubFloor { get; set; } = "Diện tích tiếp xúc với sàn";
+        #endregion
     }
 }
