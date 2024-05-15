@@ -1,0 +1,2 @@
+C:\Users\LENOVO\Desktop\DATT_hieu77164\ExportParametersToExcel1\obj\Debug\ExportParametersToExcel1.csproj.AssemblyReference.cache
+C:\Users\LENOVO\Desktop\DATT_hieu77164\ExportParametersToExcel1\obj\Debug\ExportParametersToExcel1.csproj.CoreCompileInputs.cache

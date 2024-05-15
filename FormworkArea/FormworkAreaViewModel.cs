@@ -1,4 +1,4 @@
-#region Namespaces
+    #region Namespaces
 using AlphaBIM.Models;
 using Autodesk.Revit.ApplicationServices;
 using Autodesk.Revit.Attributes;
@@ -166,7 +166,7 @@ namespace AlphaBIM
                         }
                         if (IsCalFloorSubBeam)
                         {
-                            solid1Area = faces1.CalAreaNotTop();
+                           // solid1Area = faces1.CalAreaNotTop();
                         }    
                        
                     }
@@ -211,10 +211,8 @@ namespace AlphaBIM
                         {
                             //solid2Area = faces2.CalAreaNotTopNotBottom();
                             if (IsCalFloorBottom)
-                            {
-                                floorSides = faces2.CalAreaNotTopNotBottom();
-                                floorBottom = faces2.CalAreaOnlyBottom();
-                              solid2Area = faces2.CalAreaNotTop();
+                            {                             
+                                solid2Area = faces2.CalAreaNotTop();
                             }
                             if (IsCalFloorSubBeam)
                             {
@@ -256,9 +254,7 @@ namespace AlphaBIM
                             {
                                 //uionArea = facesUnion.CalAreaNotTopNotBottom();
                                 if (IsCalFloorBottom)
-                                {
-                                    floorSides = facesUnion.CalAreaNotTopNotBottom();
-                                    floorBottom = facesUnion.CalAreaOnlyBottom();
+                                {                                   
                                     uionArea = facesUnion.CalAreaNotTop(); 
                                 }
                                 if (IsCalFloorSubBeam)
@@ -392,26 +388,26 @@ namespace AlphaBIM
                     else if (element.Category.Id.IntegerValue == (int)BuiltInCategory.OST_Floors)
                     {
                         Parameter nameAlpFormworkArea = element.LookupParameter(CreateShareParameterFormworkArea.NameAlpFormworkArea);
-                      //  Parameter nameFwFloorTotal = element.LookupParameter(CreateShareParameterFormworkArea.NameFwFloorTotal);
+                        Parameter nameFwFloorTotal = element.LookupParameter(CreateShareParameterFormworkArea.NameFwFloorTotal);
                         Parameter nameFwFloorSides = element.LookupParameter(CreateShareParameterFormworkArea.NameFwFloorSides);
                         Parameter nameFwFloorBottom = element.LookupParameter(CreateShareParameterFormworkArea.NameFwFloorBottom);
                         Parameter nameFwFloorSubCol = element.LookupParameter(CreateShareParameterFormworkArea.NameFwFloorSubCol);
                         Parameter nameFwFloorSubBeam = element.LookupParameter(CreateShareParameterFormworkArea.NameFwFloorSubBeam);
                         Parameter nameFwFloorSubFloor = element.LookupParameter(CreateShareParameterFormworkArea.NameFwFloorSubFloor);
                         nameAlpFormworkArea.Set(0);
-                       // nameFwFloorTotal.Set(0);
+                        nameFwFloorTotal.Set(0);
                         nameFwFloorSides.Set(0);
                         nameFwFloorBottom.Set(0);
                         nameFwFloorSubCol.Set(0);
                         nameFwFloorSubBeam.Set(0);
                         nameFwFloorSubFloor.Set(0);
 
-                       // nameFwFloorTotal.Set(totalArea);
+                        nameFwFloorTotal.Set(totalArea);
                         nameFwFloorSides.Set(floorSides);
                         if (IsCalFloorBottom)
                         {                   
                             nameFwFloorBottom.Set(floorBottom);
-                            nameAlpFormworkArea.Set(floorBottom + floorSides - floorSubCol - floorSubBeam - floorSubFloor);
+                            nameAlpFormworkArea.Set(totalArea - floorSubCol - floorSubBeam - floorSubFloor);
                         }  
                         if(IsCalFloorSubBeam)
                         {

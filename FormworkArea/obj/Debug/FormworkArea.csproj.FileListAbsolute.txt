@@ -34,3 +34,10 @@ C:\Users\LENOVO\Desktop\DATT_hieu77164\FormworkArea\obj\Debug\FormworkArea.dll
 C:\Users\LENOVO\Desktop\DATT_hieu77164\FormworkArea\obj\Debug\FormworkArea.pdb
 C:\Users\LENOVO\Desktop\DATT_hieu77164\FormworkArea\obj\Debug\FormworkArea.csproj.CopyComplete
 C:\Users\LENOVO\Desktop\DATT_hieu77164\FormworkArea\obj\Debug\FormworkArea.csproj.AssemblyReference.cache
+C:\Users\LENOVO\Desktop\DATT_hieu77164\FormworkArea\bin\Debug\EPPlus.dll
+C:\Users\LENOVO\Desktop\DATT_hieu77164\FormworkArea\bin\Debug\MahApps.Metro.IconPacks.dll
+C:\Users\LENOVO\Desktop\DATT_hieu77164\FormworkArea\bin\Debug\Microsoft.WindowsAPICodePack.dll
+C:\Users\LENOVO\Desktop\DATT_hieu77164\FormworkArea\bin\Debug\Microsoft.WindowsAPICodePack.Shell.dll
+C:\Users\LENOVO\Desktop\DATT_hieu77164\FormworkArea\bin\Debug\Newtonsoft.Json.dll
+C:\Users\LENOVO\Desktop\DATT_hieu77164\FormworkArea\bin\Debug\System.Windows.Interactivity.dll
+C:\Users\LENOVO\Desktop\DATT_hieu77164\FormworkArea\bin\Debug\Xceed.Wpf.Toolkit.dll
