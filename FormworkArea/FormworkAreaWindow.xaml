@@ -61,6 +61,13 @@
                     Width="100"
                     IsDefault="True"
                     Click="btnOk_Click" />
+            <Button DockPanel.Dock="Right"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Bottom"
+                    Content="XUẤT EXCLE"
+                    Width="137"
+                    IsDefault="True"
+                    Click="btnEx_Click" />
             <!--<Button DockPanel.Dock="Right"
                     HorizontalAlignment="Right"
                     VerticalAlignment="Bottom"

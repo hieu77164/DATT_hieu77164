@@ -54,5 +54,10 @@ namespace AlphaBIM
             DialogResult = false;
             Close();
         }
+
+        private void btnEx_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     } 
 }
